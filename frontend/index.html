@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo - Bruno Cerqueira</title>
+  <style>
+    :root {
+      --primary: #0f172a;       /* Slate 900 */
+      --secondary: #2563eb;     /* Blue 600 - destaque */
+      --text: #334155;          /* Slate 700 */
+      --bg-accent: #f8fafc;     /* Slate 50 */
+      --border: #e2e8f0;        /* Slate 200 */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .contact-info a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* SEÇÕES */
+    section {
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* CERTIFICAÇÕES Badge */
+    .cert-card {
+      background-color: var(--bg-accent);
+      border-left: 4px solid var(--secondary);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 8px;
+    }
+
+    .cert-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    .cert-issuer {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* EXPERIÊNCIA */
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .company {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .role {
+      font-weight: 600;
+      color: var(--secondary);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    /* HABILIDADES / TECNOLOGIAS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .skill-category {
+      background: var(--bg-accent);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .skill-category strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .skill-category span {
+      font-size: 0.88rem;
+    }
+
+    /* REGRA PARA IMPRESSÃO (PDF) */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: var(--text);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header>
+      <h1>Bruno Cerqueira</h1>
+      <div class="subtitle">Analista de Infraestrutura | Cloud & Redes</div>
+      <div class="contact-info">
+        <span>São Paulo – SP</span>
+        <span>•</span>
+        <span>11 97045-0727</span>
+        <span>•</span>
+        <a href="mailto:bssc@outlook.com">bssc@outlook.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/brunossc/" target="_blank">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- RESUMO PROFISSIONAL -->
+    <section>
+      <h2>Resumo Profissional</h2>
+      <p>
+        Profissional de Infraestrutura e Redes com experiência em ambientes corporativos, atuando no desenho de topologias, segurança de redes (Firewalls/VPNs) e suporte especializado. Em evolução ativa para ambientes de Nuvem e DevOps, combinando bagagem em conectividade e Linux com prática em AWS (VPC, IAM, Organizations, S3), Infraestrutura como Código (Terraform) e automação.
+      </p>
+    </section>
+
+    <!-- CERTIFICAÇÕES -->
+    <section>
+      <h2>Certificações</h2>
+      <div class="cert-card">
+        <div class="cert-title">AWS Certified Solutions Architect – Associate (CSAA)</div>
+        <div class="cert-issuer">Amazon Web Services</div>
+      </div>
+    </section>
+
+    <!-- EXPERIÊNCIA PROFISSIONAL -->
+    <section>
+      <h2>Experiência Profissional</h2>
+      
+      <div class="job">
+        <div class="job-header">
+          <span class="company">ImediaData Tecnologia S/A</span>
+          <span class="date">2019 – Atual</span>
+        </div>
+        <div class="role">Analista de Infraestrutura / Redes (Suporte N2 & Projetos)</div>
+        <ul>
+          <li>Atuação em projetos de infraestrutura e redes para clientes corporativos.</li>
+          <li>Desenho, implementação e documentação técnica de topologias de rede e conectividade híbrida.</li>
+          <li>Implementação e manutenção de VPNs de alta disponibilidade (IPSec e OpenVPN).</li>
+          <li>Configuração e gestão de regras de Firewall e appliances baseados em OpenWRT e Fortigate.</li>
+          <li>Criação de soluções de monitoramento de ativos usando Zabbix e dashboards customizados no Grafana.</li>
+          <li>Suporte técnico N2 avançado, troubleshooting de conectividade e atendimento em inglês.</li>
+          <li>Treinamento técnico de analistas júnior e elaboração de documentação para o Service Desk.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">ImediaData Tecnologia S/A</span>
+          <span class="date">2015 – 2018</span>
+        </div>
+        <div class="role">Analista de Suporte Júnior</div>
+        <ul>
+          <li>Atendimento técnico e troubleshooting de redes, roteamento e conectividade (N1).</li>
+          <li>Abertura, categorização e acompanhamento de chamados via OTRS.</li>
+          <li>Suporte e administração básica de ambientes Windows Server e Linux.</li>
+          <li>Instalação e manutenção de clientes VPN (OpenVPN e Cisco VPN).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HABILIDADES TÉCNICAS -->
+    <section>
+      <h2>Competências & Tecnologias</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <strong>Cloud & IaC</strong>
+          <span>AWS (VPC, IAM, S3, Organizations), Terraform, Git</span>
+        </div>
+        <div class="skill-category">
+          <strong>Redes & Segurança</strong>
+          <span>VPN (IPSec, OpenVPN), Firewalls (Fortigate, pfSense, OpenWRT), Roteamento</span>
+        </div>
+        <div class="skill-category">
+          <strong>Sistemas & Observabilidade</strong>
+          <span>Linux, Windows Server, Zabbix, Grafana</span>
+        </div>
+        <div class="skill-category">
+          <strong>Outros</strong>
+          <span>Documentação Técnica, Troubleshooting N2, Inglês Avançado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section>
+      <h2>Formação Acadêmica</h2>
+      <p><strong>Bacharelado em Sistemas de Informação</strong> — Concluído</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
