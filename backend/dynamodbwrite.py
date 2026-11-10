@@ -1,4 +1,3 @@
-#testee deploy
 import boto3
 
 def lambda_handler(event, context):
@@ -6,6 +5,7 @@ def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('contador-visitante')
 
+    # Realiza o incremento atômico no DynamoDB
     response = table.update_item(
         Key={'id': '1'},
         UpdateExpression='SET numeroatual = numeroatual + :contador',
@@ -13,7 +13,9 @@ def lambda_handler(event, context):
         ReturnValues='UPDATED_NEW'
     )
     
-    print(response['Attributes'])
+    # Pega o valor atualizado de forma segura
+    attributes = response.get('Attributes', {})
+    numero_atual = attributes.get('numeroatual', 0)
     
     return {
         'statusCode': 200,
@@ -21,13 +23,11 @@ def lambda_handler(event, context):
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
         },
-        'body': str(response['Attributes']['numeroatual'])
+        'body': str(numero_atual)
     }
 
 # --- TRUQUE PARA TESTAR LOCALMENTE ---
-# A AWS ignora este bloco quando o código roda lá na nuvem.
-# Mas na sua máquina, se você rodar "python dynamodbwrite.py", ele executa isso aqui embaixo!
 if __name__ == '__main__':
     print("Testando a Lambda localmente...")
-    # Simula o event e o context que a AWS mandaria
-    lambda_handler({}, {})
+    resultado = lambda_handler({}, {})
+    print("Retorno da função:", resultado)

@@ -20,12 +20,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Empacotar e atualizar a função Lambda
+      - name: Atualizar lambda de escrita
         run: |
           cd backend
-          # Prepara o arquivo para o padrão que a AWS lê por 
           cp dynamodbwrite.py lambda_function.py
           zip function.zip lambda_function.py
-          aws lambda update-function-code \
-            --function-name AcrescimoContador \
-            --zip-file fileb://function.zip
+          aws lambda update-function-code --function-name AcrescimoContador --zip-file fileb://function.zip
+        
+      - name: Atualizar lambda de leitura
+        run: |
+          cd backend
+          cp dynamodbread.py lambda_function.py
+          zip function.zip lambda_function.py
+          aws lambda update-function-code --function-name consultaContador --zip-file fileb://function.zip
