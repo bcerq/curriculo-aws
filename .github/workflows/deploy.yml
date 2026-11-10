@@ -23,7 +23,9 @@ jobs:
       - name: Empacotar e atualizar a função Lambda
         run: |
           cd backend
-          zip function.zip dynamodbwrite.py
+          # Prepara o arquivo para o padrão que a AWS lê por 
+          cp dynamodbwrite.py lambda_function.py
+          zip function.zip lambda_function.py
           aws lambda update-function-code \
             --function-name AcrescimoContador \
             --zip-file fileb://function.zip
