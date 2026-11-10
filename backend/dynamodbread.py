@@ -21,7 +21,8 @@ def lambda_handler(event, context):
         'body': str(numero)
     }
 
+# --- TRUQUE PARA TESTAR LOCALMENTE ---
 if __name__ == '__main__':
     print("Testando a Lambda localmente...")
     resultado = lambda_handler({}, {})
-    print("Resposta da Lambda:", resultado)
+    print("Retorno da função:", resultado)
