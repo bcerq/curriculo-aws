@@ -28,7 +28,7 @@ jobs:
       - name: Atualizar lambda de leitura
         run: |
           cd backend
-          cp dynamodbbread.py lambda_function.py
+          cp dynamodbread.py lambda_function.py
           zip function.zip lambda_function.py
           aws lambda update-function-code --function-name LeituraContador --zip-file fileb://function.zip
 
