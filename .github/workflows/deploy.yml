@@ -30,7 +30,7 @@ jobs:
           cd backend
           cp dynamodbread.py lambda_function.py
           zip function.zip lambda_function.py
-          aws lambda update-function-code --function-name LeituraContador --zip-file fileb://function.zip
+          aws lambda update-function-code --function-name consultaContador --zip-file fileb://function.zip
 
   deploy-frontend:
     needs: deploy-backend
