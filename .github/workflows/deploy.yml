@@ -1,13 +1,11 @@
-name: Deploy Lambda Backend
+name: Deploy Cloud Resume Challenge
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'backend/**'
 
 jobs:
-  deploy:
+  deploy-backend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
@@ -26,10 +24,28 @@ jobs:
           cp dynamodbwrite.py lambda_function.py
           zip function.zip lambda_function.py
           aws lambda update-function-code --function-name AcrescimoContador --zip-file fileb://function.zip
-        
+
       - name: Atualizar lambda de leitura
         run: |
           cd backend
-          cp dynamodbread.py lambda_function.py
+          cp dynamodbbread.py lambda_function.py
           zip function.zip lambda_function.py
-          aws lambda update-function-code --function-name consultaContador --zip-file fileb://function.zip
+          aws lambda update-function-code --function-name LeituraContador --zip-file fileb://function.zip
+
+  deploy-frontend:
+    needs: deploy-backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar credenciais da AWS
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Enviar arquivos do Frontend para o S3
+        run: |
+          aws s3 sync frontend/ s3://bssccvwebsite --delete
