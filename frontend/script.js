@@ -1,19 +1,23 @@
-// Substitua pela Invoke URL completa do seu API Gateway (aquela que pega lá em Stages)
 const API_URL = 'https://j6cpp0mx8a.execute-api.us-east-1.amazonaws.com';
 
-async function carregarContador() {
+async function atualizarEContarVisita() {
     try {
-        // Faz a requisição GET para a sua Lambda de leitura
+        // 1. Faz um POST para a  Lambda de escrita somar +1 visita no DynamoDB
+        await fetch(`${API_URL}/post`, {
+            method: 'POST'
+        });
+
+        // 2. Logo em seguida, faz o GET para ler o valor atualizado e jogar na tela
         let resposta = await fetch(`${API_URL}/get`);
         let valor = await resposta.json();
         
-        // Joga o valor dentro da tag HTML que tem o ID 'contador'
+        // Exibe o número na tag HTML com id="contador"
         document.getElementById('contador').innerText = valor;
     } catch (erro) {
-        console.error("Erro ao carregar o contador:", erro);
+        console.error("Erro ao atualizar o contador:", erro);
         document.getElementById('contador').innerText = "--";
     }
 }
 
-// Executa assim que a página abre
-carregarContador();
+// Roda assim que a página é aberta
+atualizarEContarVisita();
