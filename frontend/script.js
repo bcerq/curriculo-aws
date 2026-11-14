@@ -1,5 +1,5 @@
 // Substitua pela Invoke URL completa do seu API Gateway (aquela que pega lá em Stages)
-const API_URL = 'https://SUA-URL-DO-API-GATEWAY.execute-api.us-east-1.amazonaws.com';
+const API_URL = 'https://j6cpp0mx8a.execute-api.us-east-1.amazonaws.com';
 
 async function carregarContador() {
     try {
